@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>SLC Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css"> <script>
+  function dRF() {
+        setTimeout(function() {
+            window.location.href = "Feats.html";
+        }, 400);
+    }
+  function dRP() {
+        setTimeout(function() {
+            window.location.href = "Passion.html";
+        }, 400);
+    }
+  function dRT() {
+        setTimeout(function() {
+            window.location.href = "Timelime.html";
+        }, 400);
+    }
+  function dRTF() {
+        setTimeout(function() {
+            window.location.href = "TheFuture.html";
+        }, 400);
+    }
+  </script>
+</head>
+<body>
+  <div class="bg-animation">
+    <div class="blob"></div>
+  </div>
+
+  <h1>DASHBOARD</h1>
+
+  <div class="Cards-Container">
+    <div class="left-content-card">
+      <div class="glass-inner">
+        <h3>PROFILE</h3>
+        <div class="profile-img-container">
+            <img src="pfp.png" alt="Profile"> 
+        </div>
+        <div class="stats">
+            <p><strong>Name:</strong> Christ Benedict Arends</p>
+            <p><strong>Class:</strong> 9C (HR: Mr. Faruq)</p>
+            <p><strong>Stack:</strong> HTML, Luau, CSS</p>
+          <p><strong>Tools:</strong> GitHub, RBLXStudio, AntiGravity</p>
+        </div>
+        <button class="Feats-Btn" onclick="dRF()">VIEW FEATS</button>
+      </div>
+    </div>
+
+    <div class="right-container-card">
+      <h3 class="section-label">MAP</h3>
+      
+      <div class="nav-item" onclick="dRP()">
+        <div class="icon-box icon-passion">👤</div>
+        <div class="nav-text">
+            <button class="Why">The Passion</button>
+            <span>Why I chose to pursue ICT for 3 years.</span>
+        </div>
+      </div>
+
+      <div class="nav-item" onclick="dRT()">
+        <div class="icon-box icon-timeline">🕒</div>
+        <div class="nav-text">
+            <button class="Timeline">Timeline</button>
+            <span>Evolution and comparisons from G7–G8.</span>
+        </div>
+      </div>
+
+      <div class="nav-item" onclick="dRTF()">
+        <div class="icon-box icon-future">🎯</div>
+        <div class="nav-text">
+            <button class="TheFuture">The Future</button>
+            <span>Where the journey leads after Grade 9.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
