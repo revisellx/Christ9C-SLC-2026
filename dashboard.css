@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;800&display=swap');
+
+* {
+  box-sizing: border-box; /* Crucial for responsiveness */
+}
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
+  --text-color: #2d3436;
+  --accent-blue: #0984e3;
+  --nm-out: 12px 12px 20px rgba(163, 177, 198, 0.7), -12px -12px 20px rgba(255, 255, 255, 0.6);
+  --nm-in: inset 4px 4px 8px rgba(163, 177, 198, 0.8), inset -4px -4px 8px rgba(255, 255, 255, 0.6);
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 5vh 5%; /* Use percentage padding for responsiveness */
+  overflow-x: hidden;
+  animation: fadeInSystem 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeInSystem {
+  from { opacity: 0; transform: translateY(120px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Animated Background Elements --- */
+.bg-animation {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+}
+
+.blob {
+  position: absolute;
+  width: 40vw;
+  height: 40vw;
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  filter: blur(80px);
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: float 20s infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translate(-10%, -10%); }
+  100% { transform: translate(20%, 30%); }
+}
+
+h1 {
+  letter-spacing: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: clamp(1.5rem, 5vw, 3rem); /* Fluid font size */
+}
+
+/* --- THE GRID SYSTEM --- */
+.Cards-Container {
+  display: grid;
+  grid-template-columns: 350px 1fr; /* Two columns on desktop */
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* --- Profile Card (Glass) --- */
+.left-content-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* The "Shine" edge */
+  box-shadow: var(--nm-out);
+  padding: 40px;
+  height: fit-content;
+}
+
+.profile-img-container {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
+  background: var(--bg-color);
+  border-radius: 30px;
+  box-shadow: var(--nm-in);
+  overflow: hidden;
+}
+
+.profile-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fixed the stretching */
+}
+
+.stats p {
+  font-weight: 200;
+  letter-spacing: 1.5px;
+  margin: 12px 0;
+}
+
+/* --- Map Navigation (Neumorphic) --- */
+.nav-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--nm-out);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.icon-box {
+  flex-shrink: 0; /* Prevents icon box from squishing */
+  width: 60px;
+  height: 60px;
+  background: #e0e5ec;
+  box-shadow: var(--nm-in);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+
+.nav-text button {
+  all: unset;
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.nav-text span {
+  font-weight: 200;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+/* --- Gradient Button --- */
+.Feats-Btn {
+  all: unset;
+  margin-top: 20px;
+  width: 100%;
+  display: block;
+  padding: 15px 0;
+  background: linear-gradient(135deg, #0984e3, #6c5ce7);
+  border-radius: 15px;
+  color: white;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(108, 92, 231, 0.3);
+}
+
+/* --- MOBILE & TABLET RESPONSIVENESS --- */
+@media (max-width: 950px) {
+  .Cards-Container {
+    grid-template-columns: 1fr; /* Switches to 1 column */
+  }
+
+  .left-content-card {
+    text-align: center;
+  }
+
+  h1 {
+    letter-spacing: 6px;
+  }
+}
+
+@media (max-width: 500px) {
+  .nav-item {
+    flex-direction: column; /* Icon goes on top for very small screens */
+    text-align: center;
+    padding: 30px 15px;
+  }
+
+  .icon-box {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .nav-text button {
+      font-size: 1.1rem;
+  }
+}
